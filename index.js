@@ -26,24 +26,28 @@ class D {
     return this.months[monthIndex] //get the month string
   }
 
-  // get day() {
+  get day() {
+    return this.date.getDate()
+  }
 
-  // }
+  get hours() {
+    return this.date.getHours()
+  }
 
-  // get hours() {
+  get mins() {
+    return this.date.getMinutes()
+  }
 
-  // }
-
-  // get mins() {
-
-  // }
-
-  // get secs() {
-
-  // }
+  get secs() {
+    return this.date.getSeconds()
+  }
 }
 
-const d = new D(2019, 3, 23)
+const d = new D()
 const year = d.year // 2019
 console.log(year)
 console.log(d.month)
+console.log(d.day)
+console.log(d.hours)
+console.log(d.mins)
+console.log(d.secs)
