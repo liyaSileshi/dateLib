@@ -1,4 +1,4 @@
-class D {
+class Pendulum {
   constructor(...args) {
     this.date = new Date(...args)
     this.months = [
@@ -116,15 +116,83 @@ class D {
     }
     return result;
   }
+
+  when() {
+    const curr = new Date()
+    let diff = curr.getTime() - this.date.getTime()
+    //check if there is no difference
+    if (diff == 0) {
+      return 'now'
+    }
+    //check if there is a seconds difference
+    //calculate seconds
+    diff /= 1000
+    if (Math.abs(diff) <= 44) {
+      return `a few seconds ` +  (diff < 0 ? `from now`: `ago`)
+    }
+
+    if (Math.abs(diff) == 44) {
+      return `${Math.abs(diff).toFixed(0)} seconds ` + (diff < 0 ? `from now`: `ago`)
+    }
+
+    if (Math.abs(diff) >= 44 && Math.abs(diff) <= 89) {
+      return `a minute ` + (diff < 0 ? `from now`: `ago`)
+    }
+
+    // calculate minute
+    diff /= 60
+    if (Math.abs(diff) >= 1.5 && Math.abs(diff) <= 44) {
+      return `${Math.abs(diff).toFixed(0)} minutes ` + (diff < 0 ? `from now`: `ago`)
+    }
+
+    //an hour
+    if (Math.abs(diff) > 44 && Math.abs(diff) <= 89) {
+      return `an hour ` + (diff < 0 ? `from now`: `ago`)
+    }
+
+    //calculate hour
+    diff /= 60
+    if (Math.abs(diff) > 1.5 && Math.abs(diff) <= 21) {
+      return `${Math.abs(diff).toFixed(0)} hours ` + (diff < 0 ? `from now`: `ago`)
+    }
+
+    // a day
+    if (Math.abs(diff) > 21 && Math.abs(diff) <= 35) {
+      return `a day ` + (diff < 0 ? `from now`: `ago`)
+    }
+
+    //calculate days
+    diff /= 24
+    if (Math.abs(diff) > 1.6 && Math.abs(diff) <= 25) {
+      return `${Math.abs(diff).toFixed(0)} days ` + (diff < 0 ? `from now`: `ago`)
+    }
+
+    // a month
+    if (Math.abs(diff) > 25 && Math.abs(diff) < 45) {
+      return `a month ` + (diff < 0 ? `from now`: `ago`)
+    }
+
+    //calculate months
+    diff /= 30
+    if (Math.abs(diff) >= 1.4 && Math.abs(diff) <= 10.5) {
+      return `${Math.abs(diff).toFixed(0)} months ` + (diff < 0 ? `from now`: `ago`)
+    }
+
+    // year
+    diff /= 12
+    return `${Math.abs(diff).toFixed(0)} year` + (Math.abs(diff) < 1.5 ? ' ': 's ') + (diff < 0 ? `from now`: `ago`)
+  }
 }
 
-const d = new D(2017, 0, 2, 3, 4, 5)
-console.log(d.format())
-console.log(d.format('y/m/D'))
-console.log(d.format('y/m/d'))       // 17/Jan/2
-console.log(d.format('H:I:S'))       // 03:04:05
-console.log(d.format('h:i:s'))       // 3:4:5
-console.log(d.format('Y-M-D h:I:S'))
+
+
+// const d = new Pendulum(2017, 0, 2, 3, 4, 5)
+// console.log(d.format())
+// console.log(d.format('y/m/D'))
+// console.log(d.format('y/m/d'))       // 17/Jan/2
+// console.log(d.format('H:I:S'))       // 03:04:05
+// console.log(d.format('h:i:s'))       // 3:4:5
+// console.log(d.format('Y-M-D h:I:S'))
 // const year = d.year // 2019
 // console.log(year)
 // console.log(d.month)
@@ -132,3 +200,6 @@ console.log(d.format('Y-M-D h:I:S'))
 // console.log(d.hours)
 // console.log(d.mins)
 // console.log(d.secs)
+const d = new Pendulum(2022,10,20)
+// const d = new Pendulum()
+console.log(d.when()) // today
