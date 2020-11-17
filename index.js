@@ -185,21 +185,4 @@ class Pendulum {
 }
 
 
-
-// const d = new Pendulum(2017, 0, 2, 3, 4, 5)
-// console.log(d.format())
-// console.log(d.format('y/m/D'))
-// console.log(d.format('y/m/d'))       // 17/Jan/2
-// console.log(d.format('H:I:S'))       // 03:04:05
-// console.log(d.format('h:i:s'))       // 3:4:5
-// console.log(d.format('Y-M-D h:I:S'))
-// const year = d.year // 2019
-// console.log(year)
-// console.log(d.month)
-// console.log(d.day - 1)
-// console.log(d.hours)
-// console.log(d.mins)
-// console.log(d.secs)
-const d = new Pendulum(2022,10,20)
-// const d = new Pendulum()
-console.log(d.when()) // today
+module.exports.Pendulum = Pendulum
