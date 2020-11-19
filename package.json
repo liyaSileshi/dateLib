@@ -1,6 +1,6 @@
 {
   "name": "@lstilahun/datelib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "date library wrapper",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/liyaSileshi/dateLib#readme",
   "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
     "jest": "^26.6.3"
   }
 }
